@@ -215,9 +215,16 @@ Odds:
 exp ( glm1 $ coefficients )
 ```
 
-Intercept: When Age is **.red[zero]**, the **.red[odds]** of babies crawling are 74% (1-.26) **.green[less likely]** than not crawling. 
+Intercept: When Age is **.red[zero]**, the **.red[odds]** of babies crawling are 74% (1-.26) **.green[less likely]** than odds of crawling.  
 
 Age: Babies **.red[one month older]** are 12% more likely to start crawling OR unit increase in Age **.green[increases the odds]** of crawling by a factor of 1.12 
+
+???
+For 0.26 baby that crawls, you will have 1 baby that does not crawl <br/><br/>
+Or we can invert the odds:1/0.26 = 3.84 <br/>
+
+At Age 0 (birth), it is 3.84 times more likely for babies not to crawl than to crawl. <br/> 
+For every 3.84 babies that do not crawl you will have 1 that does. <br/><br/>
 
 ---
 
@@ -273,6 +280,20 @@ ggplot(data=Babies, aes(x=Age, y=Probs))+geom_point(size=3, col='blue')+geom_poi
 ```
 ???
 The red dots indicate the observed crawling values (1 and 0) - whether baby is crawling or not given their age. The blue dots are predicted probabilities by the model. 
+---
+## Relationship between probabilities and odds
+
+Probability: $p = \frac{f}{N}$<br/>
+Expectations of how many times we will see event in N number of trials (between 0 and 1) <br/><br/><br/>
+Odds of event: $odds = \frac{p}{1-p}$ (between 0 and positive infinity)  <br/>
+Probability that the event will occur divided by the probability that event will not occur <br/><br/><br/>
+
+p = 0.80<br/>
+odds = $\frac{0.80}{0.20}=4$ - odds are 4 to 1 that the event will occur <br/>
+p = 0.20<br/>
+odds= $\frac{0.20}{0.80}=0.25$ - odds are 0.25 to 1 that the event will occur <br/><br/><br/>
+If a race horse runs 100 races and wins 25 times and loses 75 of times, the probability of winning is 25/100 = 0.25 or 25%, but the odds of the horse winning are 25/75 = 0.333 or 1 win to 3 loses <br/>
+
 ---
 
 ## Logistic regression formula
